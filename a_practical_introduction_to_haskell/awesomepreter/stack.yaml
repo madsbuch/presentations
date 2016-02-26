@@ -1,0 +1,10 @@
+flags: {}
+extra-package-dbs: []
+packages:
+- '.'
+extra-deps:
+- HUnit-1.2.5.2
+- QuickCheck-2.7.6
+- testpack-2.1.3.0
+- text-1.2.2.0
+resolver: lts-5.4
