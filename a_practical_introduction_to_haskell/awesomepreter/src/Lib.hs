@@ -13,7 +13,6 @@ data ALang =
   deriving (Show, Read)
 
 --The interpreter which reduces the expression to a single value
-awesomepret :: ALang -> Float
 awesomepret (Lit x)     = x
 awesomepret (Add a b)   = (awesomepret a) + (awesomepret b)
 awesomepret (Mul a b)   = let
