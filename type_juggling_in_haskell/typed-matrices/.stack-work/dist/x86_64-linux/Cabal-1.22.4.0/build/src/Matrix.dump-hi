@@ -1,0 +1,333 @@
+
+==================== FINAL INTERFACE ====================
+2016-01-26 17:43:36.786606 UTC
+
+interface typed_8AQsMMN4s8U39ddKQphr96:Matrix 7102
+  interface hash: 78c73615e9adef6ef108ef7b26d54b9f
+  ABI hash: 788d9a23d4213c7dfae1a4dd0e95438c
+  export-list hash: bd2cfcb52f5e01c0e5c9f91e5f2e5d98
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: e5362f4e2a6d45170e6ae0d6876156a8
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Matrix.headFive
+  Matrix.listify
+  Matrix.matrixProduct
+  Matrix.scale
+  Matrix.transpose
+  Matrix.vFoldl
+  Matrix.vMap
+  Matrix.vZipWith
+  Matrix.Matrix{Matrix.Matrix}
+  Matrix.Nat{Matrix.O Matrix.S}
+  Matrix.SNat{Matrix.Succ Matrix.Zero}
+  Matrix.Vec{Matrix.::: Matrix.Nill}
+  Matrix.Vector{Matrix.VCons Matrix.VNill}
+module dependencies:
+package dependencies: base-4.8.1.0* ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0
+orphans: base-4.8.1.0:GHC.Base base-4.8.1.0:GHC.Float
+family instance modules: base-4.8.1.0:Control.Applicative
+                         base-4.8.1.0:Data.Either base-4.8.1.0:Data.Monoid
+                         base-4.8.1.0:Data.Type.Equality base-4.8.1.0:GHC.Generics
+import  -/  base-4.8.1.0:GHC.Base 1db77db5dae73d8c424c85b09fbadb89
+import  -/  base-4.8.1.0:GHC.Num 9f42750c866f5832ca565146bd660c60
+import  -/  base-4.8.1.0:GHC.Show b8c65ca3124f92a166c9f05120382442
+import  -/  base-4.8.1.0:Prelude 518f762991bc287d78f21a73c974da1f
+fixities infixr 4 :::
+e804572980c7c3e404f1b7c49fe6126d
+  $fShowMatrix ::
+    GHC.Show.Show a => GHC.Show.Show (Matrix.Matrix a m n)
+  DFunId[0]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U(A,A,C(C1(U)))>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a
+                      @ (m :: Matrix.Nat)
+                      @ (n :: Matrix.Nat)
+                      $dShow :: GHC.Show.Show a.
+                  @ (Matrix.Matrix a m n)
+                  (Matrix.$fShowMatrix_$cshowsPrec @ a @ m @ n $dShow)
+                  (Matrix.$fShowMatrix_$cshow @ a @ m @ n $dShow)
+                  (Matrix.$fShowMatrix_$cshowList @ a @ m @ n $dShow) -}
+e804572980c7c3e404f1b7c49fe6126d
+  $fShowMatrix_$cshow ::
+    GHC.Show.Show a => Matrix.Matrix a m n -> GHC.Base.String
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,U(A,A,C(C1(U)))><S(S),1*U(1*U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a
+                   @ (m :: Matrix.Nat)
+                   @ (n :: Matrix.Nat)
+                   w :: GHC.Show.Show a
+                   w1 :: Matrix.Matrix a m n ->
+                 case w1 of ww { Matrix.Matrix ww1 ->
+                 Matrix.$w$cshow @ a @ m @ n w ww1 }) -}
+e804572980c7c3e404f1b7c49fe6126d
+  $fShowMatrix_$cshowList ::
+    GHC.Show.Show a => [Matrix.Matrix a m n] -> GHC.Show.ShowS
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(A,A,C(C1(U)))><S,1*U><L,U>,
+     Unfolding: (\ @ a
+                   @ (m :: Matrix.Nat)
+                   @ (n :: Matrix.Nat)
+                   $dShow :: GHC.Show.Show a
+                   ls :: [Matrix.Matrix a m n]
+                   s :: GHC.Base.String ->
+                 GHC.Show.showList__
+                   @ (Matrix.Matrix a m n)
+                   (\ x :: Matrix.Matrix a m n s1 :: GHC.Base.String[OneShot] ->
+                    case x of ww { Matrix.Matrix ww1 ->
+                    GHC.Base.++
+                      @ GHC.Types.Char
+                      (Matrix.$w$cshow @ a @ m @ n $dShow ww1)
+                      s1 })
+                   ls
+                   s) -}
+e804572980c7c3e404f1b7c49fe6126d
+  $fShowMatrix_$cshowsPrec ::
+    GHC.Show.Show a =>
+    GHC.Types.Int -> Matrix.Matrix a m n -> GHC.Show.ShowS
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,U(A,A,C(C1(U)))><L,A><S(S),1*U(1*U)><L,1*U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ a
+                   @ (m :: Matrix.Nat)
+                   @ (n :: Matrix.Nat)
+                   $dShow :: GHC.Show.Show a
+                   ds :: GHC.Types.Int
+                   x :: Matrix.Matrix a m n
+                   s :: GHC.Base.String ->
+                 GHC.Base.augment
+                   @ GHC.Types.Char
+                   (\ @ b c :: GHC.Types.Char -> b -> b[OneShot] n1 :: b[OneShot] ->
+                    GHC.Base.foldr
+                      @ GHC.Types.Char
+                      @ b
+                      c
+                      n1
+                      (Matrix.$fShowMatrix_$cshow @ a @ m @ n $dShow x))
+                   s) -}
+dc9cb0b9faefcb348805f1cef0d69d14
+  $fShowVec :: GHC.Show.Show a => GHC.Show.Show (Matrix.Vec a l)
+  DFunId[0]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U(A,A,C(C1(U)))>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ a @ (l :: Matrix.Nat) $dShow :: GHC.Show.Show a.
+                  @ (Matrix.Vec a l)
+                  (Matrix.$fShowVec_$cshowsPrec @ a @ l $dShow)
+                  (Matrix.$fShowVec_$cshow @ a @ l $dShow)
+                  (Matrix.$fShowVec_$cshowList @ a @ l $dShow) -}
+dc9cb0b9faefcb348805f1cef0d69d14
+  $fShowVec_$cshow ::
+    GHC.Show.Show a => Matrix.Vec a l -> GHC.Base.String
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(LLC(C(S))),1*U(A,A,1*C1(C1(U)))><L,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a
+                   @ (l :: Matrix.Nat)
+                   $dShow :: GHC.Show.Show a
+                   v :: Matrix.Vec a l ->
+                 GHC.Show.showList
+                   @ a
+                   $dShow
+                   (Matrix.listify @ a @ l v)
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+dc9cb0b9faefcb348805f1cef0d69d14
+  $fShowVec_$cshowList ::
+    GHC.Show.Show a => [Matrix.Vec a l] -> GHC.Show.ShowS
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(A,A,C(C1(U)))><S,1*U><L,U>,
+     Unfolding: (\ @ a
+                   @ (l :: Matrix.Nat)
+                   $dShow :: GHC.Show.Show a
+                   ls :: [Matrix.Vec a l]
+                   s :: GHC.Base.String ->
+                 GHC.Show.showList__
+                   @ (Matrix.Vec a l)
+                   (\ x :: Matrix.Vec a l s1 :: GHC.Base.String[OneShot] ->
+                    GHC.Base.++
+                      @ GHC.Types.Char
+                      (GHC.Show.showList
+                         @ a
+                         $dShow
+                         (Matrix.listify @ a @ l x)
+                         (GHC.Types.[] @ GHC.Types.Char))
+                      s1)
+                   ls
+                   s) -}
+dc9cb0b9faefcb348805f1cef0d69d14
+  $fShowVec_$cshowsPrec ::
+    GHC.Show.Show a =>
+    GHC.Types.Int -> Matrix.Vec a l -> GHC.Show.ShowS
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S(LLC(C(S))),1*U(A,A,1*C1(C1(U)))><L,A><L,1*U><L,1*U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ a
+                   @ (l :: Matrix.Nat)
+                   $dShow :: GHC.Show.Show a
+                   ds :: GHC.Types.Int
+                   x :: Matrix.Vec a l
+                   s :: GHC.Base.String ->
+                 GHC.Base.augment
+                   @ GHC.Types.Char
+                   (\ @ b c :: GHC.Types.Char -> b -> b[OneShot] n :: b[OneShot] ->
+                    GHC.Base.foldr
+                      @ GHC.Types.Char
+                      @ b
+                      c
+                      n
+                      (GHC.Show.showList
+                         @ a
+                         $dShow
+                         (Matrix.listify @ a @ l x)
+                         (GHC.Types.[] @ GHC.Types.Char)))
+                   s) -}
+f2063e9a88b737085114287bd2fe0a7f
+  $w$cshow ::
+    GHC.Show.Show a => Matrix.Vec (Matrix.Vec a m) n -> GHC.Base.String
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U(A,A,C(C1(U)))><S,1*U>,
+     Inline: [0],
+     Unfolding: (\ @ a
+                   @ (m :: Matrix.Nat)
+                   @ (n :: Matrix.Nat)
+                   w :: GHC.Show.Show a
+                   ww :: Matrix.Vec (Matrix.Vec a m) n ->
+                 Matrix.vFoldl
+                   @ GHC.Base.String
+                   @ (Matrix.Vec a m)
+                   @ n
+                   (\ x :: GHC.Base.String y :: Matrix.Vec a m[OneShot] ->
+                    GHC.Base.++
+                      @ GHC.Types.Char
+                      (GHC.Show.showList
+                         @ a
+                         w
+                         (Matrix.listify @ a @ m y)
+                         (GHC.Types.[] @ GHC.Types.Char))
+                      (GHC.CString.unpackAppendCString# "\n"# x))
+                   (GHC.Types.[] @ GHC.Types.Char)
+                   ww) -}
+e804572980c7c3e404f1b7c49fe6126d
+  type role Matrix representational nominal nominal
+  data Matrix a (m :: Matrix.Nat) (n :: Matrix.Nat) where
+    Matrix :: (Matrix.Vec (Matrix.Vec a m) n) -> Matrix a m n
+73036cc6c47c18ab6c99749aa2d01c46
+  data Nat = O | S Matrix.Nat
+    Promotable
+bd84262270f588eaee9ed96e5d61e342
+  type role SNat nominal
+  data SNat (l :: Matrix.Nat) where
+    Zero :: SNat 'Matrix.O
+    Succ :: (Matrix.SNat l1) -> SNat ('Matrix.S l1)
+dc9cb0b9faefcb348805f1cef0d69d14
+  type role Vec representational nominal
+  data Vec a (l :: Matrix.Nat) where
+    Nill :: Vec a 'Matrix.O
+    (:::) :: a -> (Matrix.Vec a l1) -> Vec a ('Matrix.S l1)
+de73604ba50a36996ce03ec35075150b
+  type role Vector representational nominal
+  data Vector a (l :: Matrix.Nat) where
+    VNill :: Vector a 'Matrix.O
+    VCons :: a -> (Matrix.Vector a l1) -> Vector a ('Matrix.S l1)
+13d317276b0bdc77ff909702799c1780
+  headFive ::
+    Matrix.Vec
+      a
+      ('Matrix.S
+         ('Matrix.S ('Matrix.S ('Matrix.S ('Matrix.S 'Matrix.O)))))
+    -> a
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ a
+                   ds :: Matrix.Vec
+                           a
+                           ('Matrix.S
+                              ('Matrix.S ('Matrix.S ('Matrix.S ('Matrix.S 'Matrix.O))))) ->
+                 case ds of wild { Matrix.::: l dt x ds1 -> x }) -}
+dc9cb0b9faefcb348805f1cef0d69d14
+  listify :: Matrix.Vec a n -> [a]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+0c4c5d9cde40b29643c167127d2a1969
+  matrixProduct ::
+    GHC.Num.Num a =>
+    Matrix.Matrix a m k -> Matrix.Matrix a k n -> Matrix.Matrix a m n
+  {- Arity: 3, Strictness: <B,A><B,1*H><B,A>b,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   @ (m :: Matrix.Nat)
+                   @ (k :: Matrix.Nat)
+                   @ (n :: Matrix.Nat)
+                   $dNum :: GHC.Num.Num a
+                   x :: Matrix.Matrix a m k
+                   my :: Matrix.Matrix a k n ->
+                 case x of wild { Matrix.Matrix vx ->
+                 Matrix.matrixProduct1 @ a @ m @ n }) -}
+44dcc94e4c0c0246e2716021f19f6619
+  matrixProduct1 :: Matrix.Matrix a m n
+  {- Strictness: b -}
+913b4c95cfc1fa6c85a66bed18ac7bff
+  scale ::
+    GHC.Num.Num a => Matrix.Matrix a m n -> a -> Matrix.Matrix a m n
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(A,A,C(C1(U)),A,A,A,A)><S,1*U(1*U)><L,U>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ @ a
+                   @ (m :: Matrix.Nat)
+                   @ (n :: Matrix.Nat)
+                   w :: GHC.Num.Num a
+                   w1 :: Matrix.Matrix a m n
+                   w2 :: a ->
+                 case w1 of ww { Matrix.Matrix ww1 ->
+                 Matrix.Matrix
+                   @ a
+                   @ m
+                   @ n
+                   (let {
+                      lvl3 :: a -> a
+                        {- Arity: 1, Strictness: <L,U>,
+                           Unfolding: InlineRule (1, True, False)
+                                      (\ y :: a -> GHC.Num.* @ a w y w2) -}
+                      = \ y :: a -> GHC.Num.* @ a w y w2
+                    } in
+                    Matrix.vMap
+                      @ (Matrix.Vec a m)
+                      @ (Matrix.Vec a m)
+                      @ n
+                      (\ x :: Matrix.Vec a m -> Matrix.vMap @ a @ a @ m lvl3 x)
+                      ww1) }) -}
+29b0a8ac8b5b091cd61cc914ad687189
+  transpose :: Matrix.Matrix a m n -> Matrix.Matrix a n m
+  {- Arity: 1, Strictness: <B,1*H>b,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ a
+                   @ (m :: Matrix.Nat)
+                   @ (n :: Matrix.Nat)
+                   ds :: Matrix.Matrix a m n ->
+                 case ds of wild { Matrix.Matrix v ->
+                 Matrix.transpose1 @ a @ m @ n }) -}
+fa21f950ca28c466a0cb29851355371a
+  transpose1 :: Matrix.Matrix a n m
+  {- Strictness: b -}
+62fce0e3f3d085c7b23f02a364b4e4f5
+  vFoldl :: (a -> b -> a) -> a -> Matrix.Vec b n -> a
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,C(C1(U))><L,U><S,1*U> -}
+5c2bba85239c4b5cf4aab9d0c416c06f
+  vMap :: (a -> b) -> Matrix.Vec a n -> Matrix.Vec b n
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U> -}
+43669ab9058a07eb8a37ef900be26110
+  vZipWith ::
+    (a -> b -> c) -> Matrix.Vec a n -> Matrix.Vec b n -> Matrix.Vec c n
+  {- Arity: 3, Strictness: <L,C(C1(U))><S,1*U><L,1*U> -}
+instance GHC.Show.Show [Matrix.Matrix] = Matrix.$fShowMatrix
+instance GHC.Show.Show [Matrix.Vec] = Matrix.$fShowVec
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

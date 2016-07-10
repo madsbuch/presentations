@@ -22,7 +22,6 @@ awesomepret (Mul a b)   = let
                              ae * be
 awesomepret (Sub a b)   = ae - be
   where
-    ae :: Float
     ae = awesomepret a
     be = awesomepret b
 awesomepret (Div a b)
