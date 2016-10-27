@@ -1,17 +1,12 @@
-{-# LANGUAGE DeriveGeneric        #-}
-{-# LANGUAGE TypeOperators        #-}
-{-# LANGUAGE GADTs                #-}
-{-# LANGUAGE FlexibleInstances    #-}
-{-# LANGUAGE StandaloneDeriving   #-}
---{-# LANGUAGE NoImplicitPrelude    #-} -- Derfor virker deriving show ikke
-{-# LANGUAGE PolyKinds            #-}
-{-# LANGUAGE RankNTypes           #-}
+{-# LANGUAGE GADTs                #-} -- Soft dependent types
+{-# LANGUAGE PolyKinds            #-} -- Allow general specification of Refl
+{-# LANGUAGE RankNTypes           #-} -- The forall stuff
 {-# LANGUAGE DataKinds            #-}
 {-# LANGUAGE TypeFamilies         #-}
-{-# LANGUAGE UndecidableInstances #-}
-{-# LANGUAGE ExplicitNamespaces   #-}
 
 module TypeEquality where
+
+-- Import from Data.Type.Equality. Only explicit for educational purposes.
 
 data Refl a b where
   Refl :: Refl a a
@@ -19,30 +14,19 @@ data Refl a b where
 instance Show (Refl a b) where
    show Refl     = "Refl"
 
-{--
-For playing pleasure
-data Nat = Z | S Nat deriving Show
+-- Basic properties
+reflexive :: Refl a a
+reflexive = Refl
 
-data SNat (n :: Nat) where
-  Zero :: SNat Z
-  Succ :: SNat n -> SNat (S n)
+symmetry :: Refl a b -> Refl b a
+symmetry Refl = Refl
 
-instance Show (SNat n) where
-   show Zero     = "Zero"
-   show (Succ n) = "Succ " ++ (show n)
+transitive :: Refl a b -> Refl b c -> Refl a c
+transitive Refl Refl = Refl
 
-test :: Refl a b -> Refl a b
-test x = x
---}
+-- helpers
+castWith :: Refl a b -> a -> b
+castWith Refl x = x
 
-{--
-In short: reflexive id - maybe?
-
-Vi giver functionen to typer der er ens, og returnere ellers den samme værdi
-som kommer ind i andet argument.
-
-En måde at trætte type ækvivalens på værdi-niveau?
-
---}
 gcastWith :: Refl a b -> ((a ~ b) => r) -> r
 gcastWith Refl x = x

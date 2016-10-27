@@ -5,8 +5,8 @@ In this presentation we will not only consider live programming, but also live
 proving! We will see how it is possible to incorporate proofs for static
 guarantees in real programs. We consider the techniques using the well known
 property of commutativity of addition using the Peano axioms. When this is
-done we will take a discussion and see how this can be implemented in real world
-program side by side with usual software testing.
+done we will take a discussion and see how this can be implemented in
+real world program side by side with usual software testing.
 
 ## Structure
 A presentation on proving properties in Haskell. The core structure of the
