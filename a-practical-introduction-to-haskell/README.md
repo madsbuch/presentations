@@ -1,4 +1,7 @@
 # A Practical Introduction to Haskell
+
+[Blog article](http://madsbuch.com/blog/a-practical-introduction-to-haskell-part-1/)
+
 This presentation provides an introduction to software development in
 Haskell. We will cover how to set up the environment, basic principles
 of functional programming, testing, and input / output. The talk does not

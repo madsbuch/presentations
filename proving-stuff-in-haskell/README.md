@@ -1,5 +1,7 @@
 # Let's Prove Stuff in Haskell
 
+[Blog article.](http://madsbuch.com/blog/proving-stuff-in-haskell/)
+
 ## Description
 In this presentation we will not only consider live programming, but also live
 proving! We will see how it is possible to incorporate proofs for static
@@ -33,4 +35,3 @@ presentation is as follows:
 
 * Kinds
 * Dependent types
-* 
